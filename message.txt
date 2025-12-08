@@ -1,1 +1,1 @@
-this is a test message text for our CS4600 final project
+PLACEHOLDER - CHANGE THIS TO ANY MESSAGE YOU WOULD LIKE TO ENCRYPT
