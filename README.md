@@ -8,19 +8,34 @@ Arin Boyadjian, Reim Nouh, Alexander Leang
 
 Download the repository as a zip. Unzip and navigate to the extracted folder.
 
-Compile all files:
+Compile all files with a terminal:
 
 ```bash
-    javac RSAKeyGenerator.java
-    javac Sender.java
-    javac Receiver.java
+javac RSAKeyGenerator.java Sender.java Receiver.java
 ```
 
-Then run the compiled files:
+## Demo
+
+Run:
 
 ```bash
-    java RSAKeyGenerator
-    java Sender
-    // Transmitted_Data.txt is created
-    java Receiver
+java RSAKeyGenerator
 ```
+
+To generate the sender/receiver public/private keypairs. Distribute the keys as necessary, though the demo will work with both keys on a single computer.
+
+In `message.txt`, create any text message to be encrypted and sent to the receiver. Then run:
+
+```bash
+java Sender
+```
+
+to AES encrypt the message with the RSA keypair, attach a MAC, and write the data to `Transmitted_Data.txt`.
+
+To decrypt, run:
+
+```bash
+java Receiver
+```
+
+and the message should be successfully decrypted and printed to output.
