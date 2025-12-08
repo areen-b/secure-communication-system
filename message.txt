@@ -1,1 +1,1 @@
-this is a test message text
+this is a test message text for our CS4600 final project
