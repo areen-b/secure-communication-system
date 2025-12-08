@@ -22,7 +22,7 @@ Run:
 java RSAKeyGenerator
 ```
 
-To generate the sender/receiver public/private keypairs. Distribute the keys as necessary, though the demo will work with both keys on a single computer.
+to generate the sender/receiver public/private keypairs. Distribute the keys as necessary, although the demo will work with both keys on a single computer.
 
 In `message.txt`, create any text message to be encrypted and sent to the receiver. Then run:
 
@@ -30,7 +30,7 @@ In `message.txt`, create any text message to be encrypted and sent to the receiv
 java Sender
 ```
 
-to AES encrypt the message with the RSA keypair, attach a MAC, and write the data to `Transmitted_Data.txt`.
+to AES encrypt the message with the RSA keypair, generate and attach a MAC, and write the data to `Transmitted_Data.txt`.
 
 To decrypt, run:
 
@@ -38,4 +38,18 @@ To decrypt, run:
 java Receiver
 ```
 
-and the message should be successfully decrypted and printed to output.
+and the message should successfully be decrypted and printed to output.
+
+### Scenario A: MAC Verified
+
+This is the default scenario, when the message has been encrypted, transmitted, and decrypted without being modified or read by an unauthorized party.
+
+### Scenario B: MAC Failed
+
+If the encrypted message in `Transmitted_Data.txt` has been tampered with (data changed or decrypted then re-encrypted), the HMAC that is computed with the message will change. Upon decryption by the receiving party, the resulting HMAC will be different than the one computed by the receiver, and a warning message will print. 
+
+**Example:** After running the `Sender` Java binary, modify `Transmitted_Data.txt` by changing many or just one character in the file. Then, run the `Receiver` binary. The output should be:
+
+```bash
+mac verification failed.
+```
