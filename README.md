@@ -48,7 +48,7 @@ This is the default scenario, when the message has been encrypted, transmitted, 
 
 If the encrypted message in `Transmitted_Data.txt` has been tampered with (data changed or decrypted then re-encrypted), the HMAC that is computed with the message will change. Upon decryption by the receiving party, the resulting HMAC will be different than the one computed by the receiver, and a warning message will print. 
 
-**Example:** After running the `Sender` Java binary, modify `Transmitted_Data.txt` by changing many or just one character in the file. Then, run the `Receiver` binary. The output should be:
+**Example:** After running the `Sender` Java binary, modify `Transmitted_Data.txt` by changing any characters of the HMAC (last line of the file). Then, run the `Receiver` binary. The output should be:
 
 ```bash
 mac verification failed.
